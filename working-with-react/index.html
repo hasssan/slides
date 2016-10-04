@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Working with React - IDTech</title>
+
+    <meta name="description" content="Learning React JS from basic">
+    <meta name="author" content="Hassan Aly">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/tomorrow-night-eighties.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section data-background="http://files.hassan.web.id/slides/idtech/img/bg.png">
+          <h1>Working with React</h1>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Tentang Saya
+
+            - Front end developer di Sebangsa
+            - Linkedin: https://id.linkedin.com/in/hasssan
+            - Website: http://hassan.web.id
+            - Github: https://github.com/hasssan
+          </script>
+        </section>
+
+        <section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### Sekadar Sejarah Web
+              ## Klasik
+
+              ![classic](http://files.hassan.web.id/slides/idtech/img/classic-web.png)
+
+              <ul>
+                <li class="fragment" data-fragment-index="1">
+                  Sederhana (+)</li>
+                <li class="fragment" data-fragment-index="2">
+                  Tak ada kejutan (+)</li>
+                <li class="fragment" data-fragment-index="3">
+                  Tergantung koneksi internet (-)</li>
+              </ul>
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### Sekadar Sejarah Web
+              ## Ajax
+
+              <img src="http://files.hassan.web.id/slides/idtech/img/ajax-web.png">
+              <ul>
+                <li class="fragment" data-fragment-index="1">
+                  Reaksi Cepat (+)</li>
+                <li class="fragment" data-fragment-index="2">
+                  *Background Process* (+)</li>
+                <li class="fragment" data-fragment-index="3">
+                  Tanpa *reload* (+)</li>
+                <li class="fragment" data-fragment-index="4">
+                  *Full vanilla* JavaScript / jQuery (noooo!)</li>
+                <li class="fragment" data-fragment-index="5">
+                  *Maintanable?*</li>
+              </ul>
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Lalu?
+            </script>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+              <h2>MV* Framework</h2>
+              <blockquote>
+                MVC, MVVM, MVP, MV&lt;isi apa saja terserah&gt;
+              </blockquote>
+              <ul>
+                <li class="fragment" data-fragment-index="1">Design structure</li>
+                <li class="fragment" data-fragment-index="2">Code reusability</li>
+                <li class="fragment" data-fragment-index="3">Team work</li>
+                <li class="fragment" data-fragment-index="4">Pitfall?</li>
+              </ul>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## MV* Framework in theory
+              > simple two-way data binding
+
+              ![ajax](http://files.hassan.web.id/slides/idtech/img/simple-mvc.png)
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## MV* Framework in reality
+
+              <img src="http://files.hassan.web.id/slides/idtech/img/complex-mvc.png" />
+              <img src="http://files.hassan.web.id/slides/idtech/img/nooo.gif" style="width:300px" />
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Catatan!
+
+              - Data selalu berubah seiring berjalannya waktu
+              - *Two-way data binding* terlalu mengerikan
+
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Perkenalkan React
+
+              <img src="http://files.hassan.web.id/slides/idtech/img/react.png" style="width:300px; border: none" />
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Apa itu React?
+
+              A JavaScript library for building user interfaces
+
+              ```
+              var App  = React.createClass({
+                render () {
+                  return (
+                    <div>ID-Tech</div>
+                  );
+                }
+              })
+
+              ReactDOM.render(<App />, document.getElementById('root'));
+              ```
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Kenapa React?
+
+              > We built React to **solve one problem**: building large applications with data that **changes over time**.
+
+              <small>https://facebook.github.io/react/docs/why-react.html</small>
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Solusi
+              <img src="http://files.hassan.web.id/slides/idtech/img/yay.gif" />
+
+              - *Component*, bukan *template*
+              - *Re-render, don't mutate*
+              - Virtual DOM
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Component
+
+              > Self-contained (state, event handler), reusable, composable, unit testable
+
+              ```
+              var GalleryItem = React.createClass({
+                render () {
+                  return (
+                    <img src={this.props.data} />
+                  );
+                }
+              })
+
+              var GalleryBox = React.createClass({
+                render () {
+                  var url = "https://i.imgur.com/M1FcWqI.jpg";
+                  return (
+                    <div className="container">
+                      <GalleryItem data={url}/>
+                    </div>
+                  );
+                }
+              })
+              ```
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Re-render
+
+              - Kembali seperti *website* jaman dahulu
+              - *Re-render website* setiap ada perubahan
+              - Data sebagai Sumber kebenaran
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              Hush, bukankah *re-render* DOM itu lemot?
+
+              ![lemot](http://files.hassan.web.id/slides/idtech/img/lemot.jpg)
+              <p class="fragment" data-fragment-index="1">tenang, ada solusinya...</p>
+            </script>
+          </section>
+
+          <section>
+            <h2>Virtual DOM</h2>
+            <blockquote>
+              Perwakilan virtual (di memory) dari DOM yang sebenarnya
+            </blockquote>
+
+            <img src="http://files.hassan.web.id/slides/idtech/img/virtual-dom.png"/>
+            <p class="fragment" data-fragment-index="1">Kaitan dengan <em>re-render?</em></p>
+          </section>
+
+          <section>
+            <h2>Re-render dari Virtual DOM</h2>
+
+            <img src="http://files.hassan.web.id/slides/idtech/img/virtual-dom-update.png" />
+          </section>
+
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## React: perlu diketahui
+
+              - Component Lifecycle
+              - State dan Props
+              - One way data flow
+              - JSX
+              - Server side rendering
+            </script>
+          </section>
+
+
+          <section data-markdown>
+            <script type="text/template">
+              #### React: perlu diketahui
+              ## Component Livecycle
+
+              <table>
+  						<tbody>
+  							<tr>
+                  <td>`getInitialState`</td>
+                  <td>
+                    menyiapkan *state* komponen
+                  </td>
+  							</tr>
+  							<tr>
+                  <td>`componentWillMount`</td>
+                  <td>
+                    persiapan sebelum *render*
+                  </td>
+  							</tr>
+  							<tr>
+                  <td>`render`</td>
+                  <td>
+                    mengembalikan elemen React
+                  </td>
+  							</tr>
+                <tr>
+                  <td>`componentDidMount`</td>
+                  <td>
+                    interaksi dengan DOM dipasang di sini
+                  </td>
+                </tr>
+                <tr>
+                  <td>`componentWillUnmount`</td>
+                  <td>
+                    bersih-bersih DOM
+                  </td>
+                </tr>
+  						</tbody>
+  					</table>
+
+              <small>Referensi: https://facebook.github.io/react/docs/component-specs.html</small>
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### React: perlu diketahui
+              ## State dan Props
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>State</th>
+                    <th>Props</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>Bisa bermutasi dari dalam komponen</td>
+                  <td>Tetap, tak bisa diubah dari dalam komponen</td>
+                </tr>
+                <tr>
+                  <td>Menyimpan data yang mungkin berubah karena *event*</td>
+                  <td>Jalan masuk *event handler* dari *parent component*</td>
+                </tr>
+                <tr>
+                  <td>Disarankan hanya dimiliki oleh *parent component*</td>
+                  <td>Bisa dimiliki siapapun</td>
+                </tr>
+                <tr>
+                  <td>Hanya bisa diubah oleh komponen itu sendiri</td>
+                  <td>Hanya menerima data, dari siapapun</td>
+                </tr>
+              </table>
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### React: perlu diketahui
+              ## One way data Flow
+
+              ![one way](http://files.hassan.web.id/slides/idtech/img/events-data.png)
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### React: perlu diketahui
+              ## JSX
+              > Sakarin, pemanis buatan
+
+              ```
+              var kotak = React.createClass({
+                  render () {
+                      return (
+                          <div>ID-Tech</div>
+                      );
+                  }
+              })
+              ```
+
+              Vanilla Javascript ES6
+
+              ```
+              var kotak = React.createClass({
+                  render () {
+                      return React.DOM.div({}, 'ID-Tech');
+                  }
+              })
+              ```
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              #### React: perlu diketahui
+              ## Server Side Rendering
+
+              ```
+              import React from 'react';
+              import ReactDOM from 'react-dom/server';
+
+              var App = React.createClass({
+                  render () {
+                      return (
+                          <div>ID-Tech: Working With React</div>
+                      );
+                  }
+              })
+
+              ReactDOM.renderToString(<App />);
+              ```
+
+            </script>
+          </section>
+
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Build Systems
+              - Babel: JSX transformer
+              - Browserify / Webpack: module bundler
+
+              <br />
+              <div style="background: white; padding: 25px 0">
+                <img style="border: none; box-shadow: none" src="http://files.hassan.web.id/slides/idtech/img/babeljs-logo.png" width="150px">
+                <img style="border: none; box-shadow: none" src="http://files.hassan.web.id/slides/idtech/img/browserify-logo.png" width="350px">
+                <img style="border: none; box-shadow: none" src="http://files.hassan.web.id/slides/idtech/img/webpack-logo.png" width="140px">
+              </div>
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## React Dev Tools
+
+              ![devtool](http://files.hassan.web.id/slides/idtech/img/devtool.png)
+            </script>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            # Demo
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            # Pertanyaan?
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            # Terima Kasih
+          </script>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
