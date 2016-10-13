@@ -94,7 +94,7 @@
 				<section data-markdown>
 					<script type="text/template">
 						<h2>Traditional Website</h2>
-						<img src="img/classic-web.jpg" height="50%">
+						<img src="/images/classic-web.jpg" height="50%">
 						<ul>
 							<li class="fragment" data-fragment-index="1">
 								Sederhana (+)</li>
@@ -141,7 +141,7 @@
 				<section data-markdown>
 					<script type="text/template">
 						<h2>Single Page Application (SPA)</h2>
-						<img src="img/ajax-web.jpg">
+						<img src="/images/ajax-web.jpg">
 						<ul>
 							<li class="fragment" data-fragment-index="1">
 								*Server* menyajikan halaman pertama,
@@ -194,7 +194,7 @@
 					<script type="text/template">
 						## Blog Saya
 						http://hassan.web.id/
-						<img src="img/hassan.web.id.jpg" alt="">
+						<img src="/images/hassan.web.id.jpg" alt="">
 						<aside class="notes">
 							Static HTML dibikin pakai hugo
 						</aside>
@@ -204,7 +204,7 @@
 					<script type="text/template">
 						## Sebangsa Web App
 						https://sebangsa.com/
-						<img src="img/sebangsa.com.jpg" alt="">
+						<img src="/images/sebangsa.com.jpg" alt="">
 						<aside class="notes">
 							Social Media berbasis Web App, model SPA,
 							dibikin pakai React.js
@@ -215,7 +215,7 @@
 					<script type="text/template">
 						## Atom Text Editor
 						https://atom.io/
-						<img src="img/atom.io.jpg" alt="">
+						<img src="/images/atom.io.jpg" alt="">
 						<aside class="notes">
 							Desktop App dibangun di atas Electron
 							dengan HTML, CSS, JS
@@ -226,7 +226,7 @@
 					<script type="text/template">
 						## reveal.js
 						http://lab.hakim.se/reveal-js/
-						<img src="img/reveal.js.jpg" alt="">
+						<img src="/images/reveal.js.jpg" alt="">
 						<aside class="notes">
 							Presentasi ini dibikin pakai reveal.js
 						</aside>
@@ -365,7 +365,10 @@
 				callback: function() {
 					hljs.initHighlightingOnLoad();
 				}
-			}]
+			},
+			{ src: 'socket.io/socket.io.js', async: true },
+      { src: 'plugin/notes-server/client.js', async: true }
+		]
 		});
 	</script>
 </body>
